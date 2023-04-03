@@ -78,13 +78,8 @@ public class KeycloakUserManager extends AbstractReadOnlyUserManager {
         if (foundUser == null) {
             throw new UserNotFoundException(userId);
         }
-        return completeUserRolesAndSource(foundUser);
+        return completeUserRolesAndSource(foundUser, null);
     }
-
-    @Override
-    public User getUser(final String userId, final Set<String> roleIds) throws UserNotFoundException {
-        return getUser(userId);
-      }
 
     private User completeUserRolesAndSource(User user) {
         user.setSource(getSource());
