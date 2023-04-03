@@ -254,3 +254,4 @@ Thanks to all contributors who helped to get this up and running.
 
 * [nexus3-crowd-plugin](https://github.com/pingunaut/nexus3-crowd-plugin.git) by [@pingunaut](https://github.com/pingunaut)
 * [keycloak-authz-client](https://github.com/keycloak/keycloak/tree/master/authz/client)
+
