@@ -82,14 +82,8 @@ public class KeycloakUserManager extends AbstractReadOnlyUserManager {
     }
 
     @Override
-    public User getUser(String userId, String source) throws UserNotFoundException {
-        log.trace("Finding user: {} in source: {}", userId, source);
-        return getUser(userId);
-    }
-
-    @Override
-    public User getUser(String userId, String source, Set<String> roleIds) throws UserNotFoundException {
-        log.trace("Finding user: {} in source: {}", userId, source);
+    public User getUser(String userId, Set<String> roleIds) throws UserNotFoundException {
+        log.trace("Finding user: {} in source: {}", userId, roleIds);
         return getUser(userId);
     }
 
