@@ -18,7 +18,7 @@ jobs:
       # https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions#github-context
       # https://stackoverflow.com/questions/57711558/deploy-to-github-package-registry-from-github-action#answer-58109063
       env:
-        GITHUB_USERNAME: ${{ github.actor }}
+        GITHUB_USERNAME: ${{ vars.GITHUB_ACTOR }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         # Note: disable staging integration (buildsupport-staging.skip=true),
