@@ -13,7 +13,7 @@ jobs:
         java-version: 1.8
     - name: Build Maven package 
       env:
-        GITHUB_USERNAME: ${{ vars.GITHUB_ACTOR }}
+        GITHUB_USERNAME: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         mvn -PbuildKar clean install -Dmaven.test.skip=true \
