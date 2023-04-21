@@ -23,7 +23,7 @@ jobs:
       run: |
         # Note: disable staging integration (buildsupport-staging.skip=true),
         # it will push the artifacts to the nexus's repository which isn't owned by us
-        mvn clean deploy -X \
+        mvn -PbuildKar clean deploy \
           -Dbuildsupport-staging.skip=true \
           -Dmaven.test.skip=true \
           --settings .github/workflows/maven-settings.xml \
