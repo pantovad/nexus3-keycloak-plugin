@@ -1,9 +1,8 @@
-# https://help.github.com/en/articles/workflow-syntax-for-github-actions
 name: Deploy Artifacts
 on:
+  workflow_dispatch:
   release:
-    types:
-    - published
+    types: [published]
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,18 +12,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Deploy to Github Package Registry
-      # https://help.github.com/en/articles/virtual-environments-for-github-actions#default-environment-variables
-      # https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions#github-context
-      # https://stackoverflow.com/questions/57711558/deploy-to-github-package-registry-from-github-action#answer-58109063
+    - name: Deploy package
+      run: mvn --batch-mode -PbuildKar -Dmaven.test.skip=true -Dbuildsupport-staging.skip=true clean deploy
       env:
         GITHUB_USERNAME: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        # Note: disable staging integration (buildsupport-staging.skip=true),
-        # it will push the artifacts to the nexus's repository which isn't owned by us
-        mvn -PbuildKar clean deploy \
-          -Dbuildsupport-staging.skip=true \
-          -Dmaven.test.skip=true \
-          --settings .github/workflows/maven-settings.xml \
-          --file pom.xml
