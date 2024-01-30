@@ -5,7 +5,7 @@
 
     <groupId>org.github.pantovad</groupId>
     <artifactId>nexus3-keycloak-plugin</artifactId>
-    <version>0.8.6</version>
+    <version>3.64.0-04</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <packaging>bundle</packaging>
 
