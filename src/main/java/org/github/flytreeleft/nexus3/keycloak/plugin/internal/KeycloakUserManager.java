@@ -94,4 +94,10 @@ public class KeycloakUserManager extends AbstractReadOnlyUserManager {
         user.setRoles(roles.stream().map(role -> new RoleIdentifier(getSource(), role)).collect(Collectors.toSet()));
         return user;
     }
+
+    @Override
+    public boolean isConfigured() {
+        return true;
+    }
+
 }
